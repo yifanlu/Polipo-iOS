@@ -390,23 +390,6 @@ getHeaderValue(const char *restrict buf, int start,
     *value_end_return = k;
     return j;
 }
-
-AtomPtr
-httpParseModifyURL(const char *urlstring, int urllen)
-{
-    static const char *carrier = "carrier=T-Mobile";
-    char newurl[urllen+18];
-    strncpy(newurl, urlstring, urllen);
-    newurl[urllen] = '\0';
-    if (strstr(newurl, "T-Mobile") == NULL)
-    {
-        char c = strchr(newurl, '?') ? '&' : '?';
-        newurl[urllen] = c;
-        strcpy(newurl+urllen+1, carrier);
-        urllen += 17;
-    }
-    return internAtomN(newurl, urllen);
-}
     
 int
 httpParseClientFirstLine(const char *restrict buf, int offset,
@@ -440,7 +423,7 @@ httpParseClientFirstLine(const char *restrict buf, int offset,
     i = getNextWord(buf, y + 1, &x, &y);
     if(i < 0) return -1;
 
-    url = method == METHOD_CONNECT ? internAtomN(buf + x, y - x) : httpParseModifyURL(buf + x, y - x);
+    url = internAtomN(buf + x, y - x);
 
     i = getNextWord(buf, y + 1, &x, &y);
     if(i < 0) {
