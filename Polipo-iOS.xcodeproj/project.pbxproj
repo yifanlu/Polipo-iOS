@@ -1,0 +1,377 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CED61F15185E54250076BC46 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CED61F14185E54250076BC46 /* Settings.bundle */; };
+		CED61F18185F84AE0076BC46 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED61F17185F84AE0076BC46 /* AVFoundation.framework */; };
+		CED61F1A185F905D0076BC46 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CED61F19185F905D0076BC46 /* Images.xcassets */; };
+		CEDF63BA17AF57BC000AE912 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDF63B917AF57BC000AE912 /* UIKit.framework */; };
+		CEDF63BC17AF57BC000AE912 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDF63BB17AF57BC000AE912 /* Foundation.framework */; };
+		CEDF63BE17AF57BC000AE912 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDF63BD17AF57BC000AE912 /* CoreGraphics.framework */; };
+		CEDF63C417AF57BC000AE912 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEDF63C217AF57BC000AE912 /* InfoPlist.strings */; };
+		CEDF63C617AF57BC000AE912 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDF63C517AF57BC000AE912 /* main.m */; };
+		CEDF63CA17AF57BC000AE912 /* PIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDF63C917AF57BC000AE912 /* PIAppDelegate.m */; };
+		CEDF63CC17AF57BC000AE912 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDF63CB17AF57BC000AE912 /* Default.png */; };
+		CEDF63CE17AF57BC000AE912 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDF63CD17AF57BC000AE912 /* Default@2x.png */; };
+		CEDF63D017AF57BC000AE912 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDF63CF17AF57BC000AE912 /* Default-568h@2x.png */; };
+		CEDF63D317AF57BC000AE912 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEDF63D117AF57BC000AE912 /* MainStoryboard.storyboard */; };
+		CEDF63D917AF57BC000AE912 /* PIMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDF63D817AF57BC000AE912 /* PIMainViewController.m */; };
+		CEF0EA6717AF604600DB4111 /* liblibpolipo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF0EA6617AF5FA500DB4111 /* liblibpolipo.a */; };
+		CEF0EA6A17AF606600DB4111 /* PIPolipo.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF0EA6917AF606600DB4111 /* PIPolipo.m */; };
+		CEF0EA6C17AF7B1100DB4111 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF0EA6B17AF7B1000DB4111 /* CFNetwork.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CEF0EA6517AF5FA500DB4111 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEF0EA6117AF5FA500DB4111 /* libpolipo.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CEDF634117AF2E07000AE912;
+			remoteInfo = libpolipo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CED61F14185E54250076BC46 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		CED61F17185F84AE0076BC46 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		CED61F19185F905D0076BC46 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CEDF63B617AF57BC000AE912 /* Polipo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Polipo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEDF63B917AF57BC000AE912 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CEDF63BB17AF57BC000AE912 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CEDF63BD17AF57BC000AE912 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CEDF63C117AF57BC000AE912 /* Polipo-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Polipo-iOS-Info.plist"; sourceTree = "<group>"; };
+		CEDF63C317AF57BC000AE912 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CEDF63C517AF57BC000AE912 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CEDF63C717AF57BC000AE912 /* Polipo-iOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Polipo-iOS-Prefix.pch"; sourceTree = "<group>"; };
+		CEDF63C817AF57BC000AE912 /* PIAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIAppDelegate.h; sourceTree = "<group>"; };
+		CEDF63C917AF57BC000AE912 /* PIAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIAppDelegate.m; sourceTree = "<group>"; };
+		CEDF63CB17AF57BC000AE912 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		CEDF63CD17AF57BC000AE912 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		CEDF63CF17AF57BC000AE912 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		CEDF63D217AF57BC000AE912 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		CEDF63D717AF57BC000AE912 /* PIMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIMainViewController.h; sourceTree = "<group>"; };
+		CEDF63D817AF57BC000AE912 /* PIMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIMainViewController.m; sourceTree = "<group>"; };
+		CEF0EA6117AF5FA500DB4111 /* libpolipo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = libpolipo.xcodeproj; sourceTree = "<group>"; };
+		CEF0EA6817AF606600DB4111 /* PIPolipo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIPolipo.h; sourceTree = "<group>"; };
+		CEF0EA6917AF606600DB4111 /* PIPolipo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIPolipo.m; sourceTree = "<group>"; };
+		CEF0EA6B17AF7B1000DB4111 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CEDF63B317AF57BC000AE912 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CED61F18185F84AE0076BC46 /* AVFoundation.framework in Frameworks */,
+				CEF0EA6C17AF7B1100DB4111 /* CFNetwork.framework in Frameworks */,
+				CEDF63BE17AF57BC000AE912 /* CoreGraphics.framework in Frameworks */,
+				CEDF63BC17AF57BC000AE912 /* Foundation.framework in Frameworks */,
+				CEDF63BA17AF57BC000AE912 /* UIKit.framework in Frameworks */,
+				CEF0EA6717AF604600DB4111 /* liblibpolipo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CEDF63AD17AF57BC000AE912 = {
+			isa = PBXGroup;
+			children = (
+				CEF0EA6117AF5FA500DB4111 /* libpolipo.xcodeproj */,
+				CEDF63BF17AF57BC000AE912 /* Polipo-iOS */,
+				CEDF63B817AF57BC000AE912 /* Frameworks */,
+				CEDF63B717AF57BC000AE912 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CEDF63B717AF57BC000AE912 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CEDF63B617AF57BC000AE912 /* Polipo-iOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CEDF63B817AF57BC000AE912 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CED61F17185F84AE0076BC46 /* AVFoundation.framework */,
+				CEF0EA6B17AF7B1000DB4111 /* CFNetwork.framework */,
+				CEDF63BD17AF57BC000AE912 /* CoreGraphics.framework */,
+				CEDF63BB17AF57BC000AE912 /* Foundation.framework */,
+				CEDF63B917AF57BC000AE912 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CEDF63BF17AF57BC000AE912 /* Polipo-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CEDF63C817AF57BC000AE912 /* PIAppDelegate.h */,
+				CEDF63C917AF57BC000AE912 /* PIAppDelegate.m */,
+				CEDF63D117AF57BC000AE912 /* MainStoryboard.storyboard */,
+				CEDF63D717AF57BC000AE912 /* PIMainViewController.h */,
+				CEDF63D817AF57BC000AE912 /* PIMainViewController.m */,
+				CED61F14185E54250076BC46 /* Settings.bundle */,
+				CEDF63C017AF57BC000AE912 /* Supporting Files */,
+				CEF0EA6817AF606600DB4111 /* PIPolipo.h */,
+				CEF0EA6917AF606600DB4111 /* PIPolipo.m */,
+				CED61F19185F905D0076BC46 /* Images.xcassets */,
+			);
+			path = "Polipo-iOS";
+			sourceTree = "<group>";
+		};
+		CEDF63C017AF57BC000AE912 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CEDF63C117AF57BC000AE912 /* Polipo-iOS-Info.plist */,
+				CEDF63C217AF57BC000AE912 /* InfoPlist.strings */,
+				CEDF63C517AF57BC000AE912 /* main.m */,
+				CEDF63C717AF57BC000AE912 /* Polipo-iOS-Prefix.pch */,
+				CEDF63CB17AF57BC000AE912 /* Default.png */,
+				CEDF63CD17AF57BC000AE912 /* Default@2x.png */,
+				CEDF63CF17AF57BC000AE912 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CEF0EA6217AF5FA500DB4111 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CEF0EA6617AF5FA500DB4111 /* liblibpolipo.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CEDF63B517AF57BC000AE912 /* Polipo-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEDF63DF17AF57BC000AE912 /* Build configuration list for PBXNativeTarget "Polipo-iOS" */;
+			buildPhases = (
+				CEDF63B217AF57BC000AE912 /* Sources */,
+				CEDF63B317AF57BC000AE912 /* Frameworks */,
+				CEDF63B417AF57BC000AE912 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Polipo-iOS";
+			productName = "Polipo-iOS";
+			productReference = CEDF63B617AF57BC000AE912 /* Polipo-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CEDF63AE17AF57BC000AE912 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = PI;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Yifan Lu";
+			};
+			buildConfigurationList = CEDF63B117AF57BC000AE912 /* Build configuration list for PBXProject "Polipo-iOS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CEDF63AD17AF57BC000AE912;
+			productRefGroup = CEDF63B717AF57BC000AE912 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = CEF0EA6217AF5FA500DB4111 /* Products */;
+					ProjectRef = CEF0EA6117AF5FA500DB4111 /* libpolipo.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				CEDF63B517AF57BC000AE912 /* Polipo-iOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		CEF0EA6617AF5FA500DB4111 /* liblibpolipo.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = liblibpolipo.a;
+			remoteRef = CEF0EA6517AF5FA500DB4111 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CEDF63B417AF57BC000AE912 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEDF63C417AF57BC000AE912 /* InfoPlist.strings in Resources */,
+				CEDF63CC17AF57BC000AE912 /* Default.png in Resources */,
+				CED61F1A185F905D0076BC46 /* Images.xcassets in Resources */,
+				CEDF63CE17AF57BC000AE912 /* Default@2x.png in Resources */,
+				CEDF63D017AF57BC000AE912 /* Default-568h@2x.png in Resources */,
+				CEDF63D317AF57BC000AE912 /* MainStoryboard.storyboard in Resources */,
+				CED61F15185E54250076BC46 /* Settings.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CEDF63B217AF57BC000AE912 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEDF63C617AF57BC000AE912 /* main.m in Sources */,
+				CEDF63CA17AF57BC000AE912 /* PIAppDelegate.m in Sources */,
+				CEDF63D917AF57BC000AE912 /* PIMainViewController.m in Sources */,
+				CEF0EA6A17AF606600DB4111 /* PIPolipo.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CEDF63C217AF57BC000AE912 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEDF63C317AF57BC000AE912 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CEDF63D117AF57BC000AE912 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEDF63D217AF57BC000AE912 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CEDF63DD17AF57BC000AE912 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CEDF63DE17AF57BC000AE912 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CEDF63E017AF57BC000AE912 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Polipo-iOS/Polipo-iOS-Prefix.pch";
+				INFOPLIST_FILE = "Polipo-iOS/Polipo-iOS-Info.plist";
+				OTHER_CODE_SIGN_FLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CEDF63E117AF57BC000AE912 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Polipo-iOS/Polipo-iOS-Prefix.pch";
+				INFOPLIST_FILE = "Polipo-iOS/Polipo-iOS-Info.plist";
+				OTHER_CODE_SIGN_FLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CEDF63B117AF57BC000AE912 /* Build configuration list for PBXProject "Polipo-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEDF63DD17AF57BC000AE912 /* Debug */,
+				CEDF63DE17AF57BC000AE912 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CEDF63DF17AF57BC000AE912 /* Build configuration list for PBXNativeTarget "Polipo-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEDF63E017AF57BC000AE912 /* Debug */,
+				CEDF63E117AF57BC000AE912 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CEDF63AE17AF57BC000AE912 /* Project object */;
+}

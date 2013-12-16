@@ -1,0 +1,398 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CEDF638817AF2E86000AE912 /* atom.c in Sources */ = {isa = PBXBuildFile; fileRef = CEDF635217AF2E86000AE912 /* atom.c */; };
+		CEDF638917AF2E86000AE912 /* auth.c in Sources */ = {isa = PBXBuildFile; fileRef = CEDF635417AF2E86000AE912 /* auth.c */; };
+		CEDF638A17AF2E86000AE912 /* chunk.c in Sources */ = {isa = PBXBuildFile; fileRef = CEDF635617AF2E86000AE912 /* chunk.c */; };
+		CEDF638B17AF2E86000AE912 /* client.c in Sources */ = {isa = PBXBuildFile; fileRef = CEDF635817AF2E86000AE912 /* client.c */; };
+		CEDF638C17AF2E86000AE912 /* config.c in Sources */ = {isa = PBXBuildFile; fileRef = CEDF635A17AF2E86000AE912 /* config.c */; };
+		CEDF638D17AF2E86000AE912 /* dirent_compat.c in Sources */ = {isa = PBXBuildFile; fileRef = CEDF635C17AF2E86000AE912 /* dirent_compat.c */; };
+		CEDF638E17AF2E86000AE912 /* diskcache.c in Sources */ = {isa = PBXBuildFile; fileRef = CEDF635E17AF2E86000AE912 /* diskcache.c */; };
+		CEDF638F17AF2E86000AE912 /* dns.c in Sources */ = {isa = PBXBuildFile; fileRef = CEDF636017AF2E86000AE912 /* dns.c */; };
+		CEDF639017AF2E86000AE912 /* event.c in Sources */ = {isa = PBXBuildFile; fileRef = CEDF636217AF2E86000AE912 /* event.c */; };
+		CEDF639117AF2E86000AE912 /* forbidden.c in Sources */ = {isa = PBXBuildFile; fileRef = CEDF636417AF2E86000AE912 /* forbidden.c */; };
+		CEDF639217AF2E86000AE912 /* fts_compat.c in Sources */ = {isa = PBXBuildFile; fileRef = CEDF636617AF2E86000AE912 /* fts_compat.c */; };
+		CEDF639317AF2E86000AE912 /* ftsimport.c in Sources */ = {isa = PBXBuildFile; fileRef = CEDF636817AF2E86000AE912 /* ftsimport.c */; };
+		CEDF639417AF2E86000AE912 /* http_parse.c in Sources */ = {isa = PBXBuildFile; fileRef = CEDF636A17AF2E86000AE912 /* http_parse.c */; };
+		CEDF639517AF2E86000AE912 /* http.c in Sources */ = {isa = PBXBuildFile; fileRef = CEDF636C17AF2E86000AE912 /* http.c */; };
+		CEDF639617AF2E86000AE912 /* io.c in Sources */ = {isa = PBXBuildFile; fileRef = CEDF636E17AF2E86000AE912 /* io.c */; };
+		CEDF639717AF2E86000AE912 /* local.c in Sources */ = {isa = PBXBuildFile; fileRef = CEDF637017AF2E86000AE912 /* local.c */; };
+		CEDF639817AF2E86000AE912 /* log.c in Sources */ = {isa = PBXBuildFile; fileRef = CEDF637217AF2E86000AE912 /* log.c */; };
+		CEDF639917AF2E86000AE912 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = CEDF637417AF2E86000AE912 /* main.c */; };
+		CEDF639B17AF2E86000AE912 /* md5import.c in Sources */ = {isa = PBXBuildFile; fileRef = CEDF637717AF2E86000AE912 /* md5import.c */; };
+		CEDF639C17AF2E86000AE912 /* mingw.c in Sources */ = {isa = PBXBuildFile; fileRef = CEDF637917AF2E86000AE912 /* mingw.c */; };
+		CEDF639D17AF2E86000AE912 /* object.c in Sources */ = {isa = PBXBuildFile; fileRef = CEDF637B17AF2E86000AE912 /* object.c */; };
+		CEDF639E17AF2E86000AE912 /* parse_time.c in Sources */ = {isa = PBXBuildFile; fileRef = CEDF637D17AF2E86000AE912 /* parse_time.c */; };
+		CEDF639F17AF2E86000AE912 /* server.c in Sources */ = {isa = PBXBuildFile; fileRef = CEDF638017AF2E86000AE912 /* server.c */; };
+		CEDF63A017AF2E86000AE912 /* socks.c in Sources */ = {isa = PBXBuildFile; fileRef = CEDF638217AF2E86000AE912 /* socks.c */; };
+		CEDF63A117AF2E86000AE912 /* tunnel.c in Sources */ = {isa = PBXBuildFile; fileRef = CEDF638417AF2E86000AE912 /* tunnel.c */; };
+		CEDF63A217AF2E86000AE912 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = CEDF638617AF2E86000AE912 /* util.c */; };
+		CEDF63A417AF2F7E000AE912 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDF63A317AF2F7E000AE912 /* CoreFoundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CEDF633F17AF2E07000AE912 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		CEDF634117AF2E07000AE912 /* liblibpolipo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibpolipo.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEDF635217AF2E86000AE912 /* atom.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = atom.c; sourceTree = "<group>"; };
+		CEDF635317AF2E86000AE912 /* atom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = atom.h; sourceTree = "<group>"; };
+		CEDF635417AF2E86000AE912 /* auth.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = auth.c; sourceTree = "<group>"; };
+		CEDF635517AF2E86000AE912 /* auth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = auth.h; sourceTree = "<group>"; };
+		CEDF635617AF2E86000AE912 /* chunk.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = chunk.c; sourceTree = "<group>"; };
+		CEDF635717AF2E86000AE912 /* chunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chunk.h; sourceTree = "<group>"; };
+		CEDF635817AF2E86000AE912 /* client.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = client.c; sourceTree = "<group>"; };
+		CEDF635917AF2E86000AE912 /* client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = client.h; sourceTree = "<group>"; };
+		CEDF635A17AF2E86000AE912 /* config.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = config.c; sourceTree = "<group>"; };
+		CEDF635B17AF2E86000AE912 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		CEDF635C17AF2E86000AE912 /* dirent_compat.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dirent_compat.c; sourceTree = "<group>"; };
+		CEDF635D17AF2E86000AE912 /* dirent_compat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dirent_compat.h; sourceTree = "<group>"; };
+		CEDF635E17AF2E86000AE912 /* diskcache.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = diskcache.c; sourceTree = "<group>"; };
+		CEDF635F17AF2E86000AE912 /* diskcache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = diskcache.h; sourceTree = "<group>"; };
+		CEDF636017AF2E86000AE912 /* dns.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dns.c; sourceTree = "<group>"; };
+		CEDF636117AF2E86000AE912 /* dns.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dns.h; sourceTree = "<group>"; };
+		CEDF636217AF2E86000AE912 /* event.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = event.c; sourceTree = "<group>"; };
+		CEDF636317AF2E86000AE912 /* event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = event.h; sourceTree = "<group>"; };
+		CEDF636417AF2E86000AE912 /* forbidden.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = forbidden.c; sourceTree = "<group>"; };
+		CEDF636517AF2E86000AE912 /* forbidden.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = forbidden.h; sourceTree = "<group>"; };
+		CEDF636617AF2E86000AE912 /* fts_compat.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fts_compat.c; sourceTree = "<group>"; };
+		CEDF636717AF2E86000AE912 /* fts_compat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fts_compat.h; sourceTree = "<group>"; };
+		CEDF636817AF2E86000AE912 /* ftsimport.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ftsimport.c; sourceTree = "<group>"; };
+		CEDF636917AF2E86000AE912 /* ftsimport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftsimport.h; sourceTree = "<group>"; };
+		CEDF636A17AF2E86000AE912 /* http_parse.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = http_parse.c; sourceTree = "<group>"; };
+		CEDF636B17AF2E86000AE912 /* http_parse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = http_parse.h; sourceTree = "<group>"; };
+		CEDF636C17AF2E86000AE912 /* http.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = http.c; sourceTree = "<group>"; };
+		CEDF636D17AF2E86000AE912 /* http.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = http.h; sourceTree = "<group>"; };
+		CEDF636E17AF2E86000AE912 /* io.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = io.c; sourceTree = "<group>"; };
+		CEDF636F17AF2E86000AE912 /* io.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = io.h; sourceTree = "<group>"; };
+		CEDF637017AF2E86000AE912 /* local.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = local.c; sourceTree = "<group>"; };
+		CEDF637117AF2E86000AE912 /* local.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = local.h; sourceTree = "<group>"; };
+		CEDF637217AF2E86000AE912 /* log.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = log.c; sourceTree = "<group>"; };
+		CEDF637317AF2E86000AE912 /* log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = log.h; sourceTree = "<group>"; };
+		CEDF637417AF2E86000AE912 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		CEDF637517AF2E86000AE912 /* md5.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = md5.c; sourceTree = "<group>"; };
+		CEDF637617AF2E86000AE912 /* md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md5.h; sourceTree = "<group>"; };
+		CEDF637717AF2E86000AE912 /* md5import.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = md5import.c; sourceTree = "<group>"; };
+		CEDF637817AF2E86000AE912 /* md5import.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md5import.h; sourceTree = "<group>"; };
+		CEDF637917AF2E86000AE912 /* mingw.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mingw.c; sourceTree = "<group>"; };
+		CEDF637A17AF2E86000AE912 /* mingw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mingw.h; sourceTree = "<group>"; };
+		CEDF637B17AF2E86000AE912 /* object.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = object.c; sourceTree = "<group>"; };
+		CEDF637C17AF2E86000AE912 /* object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = object.h; sourceTree = "<group>"; };
+		CEDF637D17AF2E86000AE912 /* parse_time.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = parse_time.c; sourceTree = "<group>"; };
+		CEDF637E17AF2E86000AE912 /* parse_time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parse_time.h; sourceTree = "<group>"; };
+		CEDF637F17AF2E86000AE912 /* polipo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = polipo.h; sourceTree = "<group>"; };
+		CEDF638017AF2E86000AE912 /* server.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = server.c; sourceTree = "<group>"; };
+		CEDF638117AF2E86000AE912 /* server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = server.h; sourceTree = "<group>"; };
+		CEDF638217AF2E86000AE912 /* socks.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = socks.c; sourceTree = "<group>"; };
+		CEDF638317AF2E86000AE912 /* socks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = socks.h; sourceTree = "<group>"; };
+		CEDF638417AF2E86000AE912 /* tunnel.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tunnel.c; sourceTree = "<group>"; };
+		CEDF638517AF2E86000AE912 /* tunnel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tunnel.h; sourceTree = "<group>"; };
+		CEDF638617AF2E86000AE912 /* util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = util.c; sourceTree = "<group>"; };
+		CEDF638717AF2E86000AE912 /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
+		CEDF63A317AF2F7E000AE912 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CEDF633E17AF2E07000AE912 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEDF63A417AF2F7E000AE912 /* CoreFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CEDF633817AF2E07000AE912 = {
+			isa = PBXGroup;
+			children = (
+				CEDF634617AF2E07000AE912 /* libpolipo */,
+				CEDF634317AF2E07000AE912 /* Frameworks */,
+				CEDF634217AF2E07000AE912 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CEDF634217AF2E07000AE912 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CEDF634117AF2E07000AE912 /* liblibpolipo.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CEDF634317AF2E07000AE912 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CEDF63A317AF2F7E000AE912 /* CoreFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CEDF634617AF2E07000AE912 /* libpolipo */ = {
+			isa = PBXGroup;
+			children = (
+				CEDF635217AF2E86000AE912 /* atom.c */,
+				CEDF635317AF2E86000AE912 /* atom.h */,
+				CEDF635417AF2E86000AE912 /* auth.c */,
+				CEDF635517AF2E86000AE912 /* auth.h */,
+				CEDF635617AF2E86000AE912 /* chunk.c */,
+				CEDF635717AF2E86000AE912 /* chunk.h */,
+				CEDF635817AF2E86000AE912 /* client.c */,
+				CEDF635917AF2E86000AE912 /* client.h */,
+				CEDF635A17AF2E86000AE912 /* config.c */,
+				CEDF635B17AF2E86000AE912 /* config.h */,
+				CEDF635C17AF2E86000AE912 /* dirent_compat.c */,
+				CEDF635D17AF2E86000AE912 /* dirent_compat.h */,
+				CEDF635E17AF2E86000AE912 /* diskcache.c */,
+				CEDF635F17AF2E86000AE912 /* diskcache.h */,
+				CEDF636017AF2E86000AE912 /* dns.c */,
+				CEDF636117AF2E86000AE912 /* dns.h */,
+				CEDF636217AF2E86000AE912 /* event.c */,
+				CEDF636317AF2E86000AE912 /* event.h */,
+				CEDF636417AF2E86000AE912 /* forbidden.c */,
+				CEDF636517AF2E86000AE912 /* forbidden.h */,
+				CEDF636617AF2E86000AE912 /* fts_compat.c */,
+				CEDF636717AF2E86000AE912 /* fts_compat.h */,
+				CEDF636817AF2E86000AE912 /* ftsimport.c */,
+				CEDF636917AF2E86000AE912 /* ftsimport.h */,
+				CEDF636A17AF2E86000AE912 /* http_parse.c */,
+				CEDF636B17AF2E86000AE912 /* http_parse.h */,
+				CEDF636C17AF2E86000AE912 /* http.c */,
+				CEDF636D17AF2E86000AE912 /* http.h */,
+				CEDF636E17AF2E86000AE912 /* io.c */,
+				CEDF636F17AF2E86000AE912 /* io.h */,
+				CEDF637017AF2E86000AE912 /* local.c */,
+				CEDF637117AF2E86000AE912 /* local.h */,
+				CEDF637217AF2E86000AE912 /* log.c */,
+				CEDF637317AF2E86000AE912 /* log.h */,
+				CEDF637417AF2E86000AE912 /* main.c */,
+				CEDF637517AF2E86000AE912 /* md5.c */,
+				CEDF637617AF2E86000AE912 /* md5.h */,
+				CEDF637717AF2E86000AE912 /* md5import.c */,
+				CEDF637817AF2E86000AE912 /* md5import.h */,
+				CEDF637917AF2E86000AE912 /* mingw.c */,
+				CEDF637A17AF2E86000AE912 /* mingw.h */,
+				CEDF637B17AF2E86000AE912 /* object.c */,
+				CEDF637C17AF2E86000AE912 /* object.h */,
+				CEDF637D17AF2E86000AE912 /* parse_time.c */,
+				CEDF637E17AF2E86000AE912 /* parse_time.h */,
+				CEDF637F17AF2E86000AE912 /* polipo.h */,
+				CEDF638017AF2E86000AE912 /* server.c */,
+				CEDF638117AF2E86000AE912 /* server.h */,
+				CEDF638217AF2E86000AE912 /* socks.c */,
+				CEDF638317AF2E86000AE912 /* socks.h */,
+				CEDF638417AF2E86000AE912 /* tunnel.c */,
+				CEDF638517AF2E86000AE912 /* tunnel.h */,
+				CEDF638617AF2E86000AE912 /* util.c */,
+				CEDF638717AF2E86000AE912 /* util.h */,
+			);
+			path = libpolipo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CEDF634017AF2E07000AE912 /* libpolipo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEDF634F17AF2E07000AE912 /* Build configuration list for PBXNativeTarget "libpolipo" */;
+			buildPhases = (
+				CEDF633D17AF2E07000AE912 /* Sources */,
+				CEDF633E17AF2E07000AE912 /* Frameworks */,
+				CEDF633F17AF2E07000AE912 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = libpolipo;
+			productName = libpolipo;
+			productReference = CEDF634117AF2E07000AE912 /* liblibpolipo.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CEDF633917AF2E07000AE912 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Yifan Lu";
+			};
+			buildConfigurationList = CEDF633C17AF2E07000AE912 /* Build configuration list for PBXProject "libpolipo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CEDF633817AF2E07000AE912;
+			productRefGroup = CEDF634217AF2E07000AE912 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CEDF634017AF2E07000AE912 /* libpolipo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CEDF633D17AF2E07000AE912 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEDF638817AF2E86000AE912 /* atom.c in Sources */,
+				CEDF638917AF2E86000AE912 /* auth.c in Sources */,
+				CEDF638A17AF2E86000AE912 /* chunk.c in Sources */,
+				CEDF638B17AF2E86000AE912 /* client.c in Sources */,
+				CEDF638C17AF2E86000AE912 /* config.c in Sources */,
+				CEDF638D17AF2E86000AE912 /* dirent_compat.c in Sources */,
+				CEDF638E17AF2E86000AE912 /* diskcache.c in Sources */,
+				CEDF638F17AF2E86000AE912 /* dns.c in Sources */,
+				CEDF639017AF2E86000AE912 /* event.c in Sources */,
+				CEDF639117AF2E86000AE912 /* forbidden.c in Sources */,
+				CEDF639217AF2E86000AE912 /* fts_compat.c in Sources */,
+				CEDF639317AF2E86000AE912 /* ftsimport.c in Sources */,
+				CEDF639417AF2E86000AE912 /* http_parse.c in Sources */,
+				CEDF639517AF2E86000AE912 /* http.c in Sources */,
+				CEDF639617AF2E86000AE912 /* io.c in Sources */,
+				CEDF639717AF2E86000AE912 /* local.c in Sources */,
+				CEDF639817AF2E86000AE912 /* log.c in Sources */,
+				CEDF639917AF2E86000AE912 /* main.c in Sources */,
+				CEDF639B17AF2E86000AE912 /* md5import.c in Sources */,
+				CEDF639C17AF2E86000AE912 /* mingw.c in Sources */,
+				CEDF639D17AF2E86000AE912 /* object.c in Sources */,
+				CEDF639E17AF2E86000AE912 /* parse_time.c in Sources */,
+				CEDF639F17AF2E86000AE912 /* server.c in Sources */,
+				CEDF63A017AF2E86000AE912 /* socks.c in Sources */,
+				CEDF63A117AF2E86000AE912 /* tunnel.c in Sources */,
+				CEDF63A217AF2E86000AE912 /* util.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		CEDF634D17AF2E07000AE912 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CEDF634E17AF2E07000AE912 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CEDF635017AF2E07000AE912 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				DSTROOT = /tmp/libpolipo.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				OTHER_CFLAGS = (
+					"-DNO_DISK_CACHE",
+					"-DNO_FANCY_RESOLVER",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		CEDF635117AF2E07000AE912 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				DSTROOT = /tmp/libpolipo.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				OTHER_CFLAGS = (
+					"-DNO_DISK_CACHE",
+					"-DNO_FANCY_RESOLVER",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CEDF633C17AF2E07000AE912 /* Build configuration list for PBXProject "libpolipo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEDF634D17AF2E07000AE912 /* Debug */,
+				CEDF634E17AF2E07000AE912 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CEDF634F17AF2E07000AE912 /* Build configuration list for PBXNativeTarget "libpolipo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEDF635017AF2E07000AE912 /* Debug */,
+				CEDF635117AF2E07000AE912 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CEDF633917AF2E07000AE912 /* Project object */;
+}
