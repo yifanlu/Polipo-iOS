@@ -6,20 +6,23 @@
 //  Copyright (c) 2013 Yifan Lu. All rights reserved.
 //
 
+#import <AVFoundation/AVFoundation.h>
 #import "PIMainViewController.h"
 #import "PIPolipo.h"
 
 @interface PIMainViewController ()
 
-@property bool isWorking;
-@property PIPolipo *polipo;
+@property (nonatomic) bool isWorking;
+@property (nonatomic, strong) PIPolipo *polipo;
+@property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;
+@property (nonatomic, strong) AVPlayer *bgPlayer;
 
 @end
 
 @implementation PIMainViewController
 
 @synthesize activityIndicator, startProxySwitch, statusLabel, logTextView;
-@synthesize isWorking = _isWorking, polipo = _polipo;
+@synthesize isWorking = _isWorking, polipo = _polipo, backgroundTask;
 
 #pragma mark View Delegate methods
 
@@ -27,7 +30,16 @@
 {
     [super viewDidLoad];
     [self setPolipo:[[PIPolipo alloc] initWithDelegate:self]];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    // Set AVAudioSession
+    NSError *sessionError = nil;
+    [[AVAudioSession sharedInstance] setDelegate:self];
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback withOptions:AVAudioSessionCategoryOptionMixWithOthers error:&sessionError];
+    
+    AVPlayerItem *item = [AVPlayerItem playerItemWithURL:[[NSBundle mainBundle] URLForResource:@"silence" withExtension:@"mp3"]];
+    
+    [self setBgPlayer:[[AVPlayer alloc] initWithPlayerItem:item]];
+    [[self bgPlayer] setActionAtItemEnd:AVPlayerActionAtItemEndNone];
 }
 
 - (void)didReceiveMemoryWarning
@@ -126,6 +138,14 @@
     [[self startProxySwitch] setOn:[polipo isRunning]];
     [[self installProfileButton] setEnabled:true];
     [[self statusLabel] setText:[NSString stringWithFormat:@"Listening on %@:%d", [[self polipo] listenAddress], (int)[[self polipo] listenPort]]];
+    
+    // start backgrounding
+    [[self bgPlayer] play];
+    [self setBackgroundTask:[[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        NSLog(@"Background handler about to expire.");
+        [[UIApplication sharedApplication] endBackgroundTask:[self backgroundTask]];
+        [self setBackgroundTask:UIBackgroundTaskInvalid];
+    }]];
 }
 
 - (void)polipoDidStop:(PIPolipo *)polipo
@@ -134,6 +154,11 @@
     [[self startProxySwitch] setOn:[polipo isRunning]];
     [[self installProfileButton] setEnabled:false];
     [[self statusLabel] setText:@"Stopped"];
+    if ([self backgroundTask] != UIBackgroundTaskInvalid)
+    {
+        [[UIApplication sharedApplication] endBackgroundTask:[self backgroundTask]];
+        [self setBackgroundTask:UIBackgroundTaskInvalid];
+    }
 }
 
 - (void)polipoDidFailWithError:(NSString *)error polipo:(PIPolipo *)polipo
@@ -144,6 +169,11 @@
     UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Error" message:error delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [message show];
     [[self statusLabel] setText:@"Error"];
+    if ([self backgroundTask] != UIBackgroundTaskInvalid)
+    {
+        [[UIApplication sharedApplication] endBackgroundTask:[self backgroundTask]];
+        [self setBackgroundTask:UIBackgroundTaskInvalid];
+    }
 }
 
 - (void)polipoLogMessage:(NSString *)message

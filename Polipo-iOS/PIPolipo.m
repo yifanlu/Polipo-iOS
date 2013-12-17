@@ -217,7 +217,7 @@ pthread_t thread;
 void *runPolipo(void *args)
 {
     id self = CFBridgingRelease(args);
-    while (polipoDoEvents() >= 0);
+    polipoDoEvents();
     close(polipoGetListenerSocket());
     [self setIsRunning:false];
     dispatch_async(dispatch_get_main_queue(),

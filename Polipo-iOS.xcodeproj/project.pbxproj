@@ -22,6 +22,7 @@
 		CEDF63D017AF57BC000AE912 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDF63CF17AF57BC000AE912 /* Default-568h@2x.png */; };
 		CEDF63D317AF57BC000AE912 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEDF63D117AF57BC000AE912 /* MainStoryboard.storyboard */; };
 		CEDF63D917AF57BC000AE912 /* PIMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDF63D817AF57BC000AE912 /* PIMainViewController.m */; };
+		CEE22A0718603958006A93E3 /* silence.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEE22A0618603958006A93E3 /* silence.mp3 */; };
 		CEF0EA6717AF604600DB4111 /* liblibpolipo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF0EA6617AF5FA500DB4111 /* liblibpolipo.a */; };
 		CEF0EA6A17AF606600DB4111 /* PIPolipo.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF0EA6917AF606600DB4111 /* PIPolipo.m */; };
 		CEF0EA6C17AF7B1100DB4111 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF0EA6B17AF7B1000DB4111 /* CFNetwork.framework */; };
@@ -58,6 +59,7 @@
 		CEDF63D217AF57BC000AE912 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		CEDF63D717AF57BC000AE912 /* PIMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIMainViewController.h; sourceTree = "<group>"; };
 		CEDF63D817AF57BC000AE912 /* PIMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIMainViewController.m; sourceTree = "<group>"; };
+		CEE22A0618603958006A93E3 /* silence.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = silence.mp3; sourceTree = "<group>"; };
 		CEF0EA6117AF5FA500DB4111 /* libpolipo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = libpolipo.xcodeproj; sourceTree = "<group>"; };
 		CEF0EA6817AF606600DB4111 /* PIPolipo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIPolipo.h; sourceTree = "<group>"; };
 		CEF0EA6917AF606600DB4111 /* PIPolipo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIPolipo.m; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 		CEDF63C017AF57BC000AE912 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CEE22A0618603958006A93E3 /* silence.mp3 */,
 				CED61F1B185FC4030076BC46 /* polipo.mobileconfig */,
 				CEDF63C117AF57BC000AE912 /* Polipo-iOS-Info.plist */,
 				CEDF63C217AF57BC000AE912 /* InfoPlist.strings */,
@@ -178,7 +181,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = PI;
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Yifan Lu";
 			};
 			buildConfigurationList = CEDF63B117AF57BC000AE912 /* Build configuration list for PBXProject "Polipo-iOS" */;
@@ -225,6 +228,7 @@
 				CED61F1A185F905D0076BC46 /* Images.xcassets in Resources */,
 				CEDF63CE17AF57BC000AE912 /* Default@2x.png in Resources */,
 				CEDF63D017AF57BC000AE912 /* Default-568h@2x.png in Resources */,
+				CEE22A0718603958006A93E3 /* silence.mp3 in Resources */,
 				CEDF63D317AF57BC000AE912 /* MainStoryboard.storyboard in Resources */,
 				CED61F15185E54250076BC46 /* Settings.bundle in Resources */,
 			);
@@ -327,14 +331,13 @@
 		CEDF63E017AF57BC000AE912 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Polipo-iOS/Polipo-iOS-Prefix.pch";
 				INFOPLIST_FILE = "Polipo-iOS/Polipo-iOS-Info.plist";
 				OTHER_CFLAGS = "";
-				OTHER_CODE_SIGN_FLAGS = "";
+				OTHER_CODE_SIGN_FLAGS = "-gta";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -343,13 +346,12 @@
 		CEDF63E117AF57BC000AE912 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Polipo-iOS/Polipo-iOS-Prefix.pch";
 				INFOPLIST_FILE = "Polipo-iOS/Polipo-iOS-Info.plist";
-				OTHER_CODE_SIGN_FLAGS = "";
+				OTHER_CODE_SIGN_FLAGS = "-gta";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
