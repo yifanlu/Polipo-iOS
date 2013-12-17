@@ -92,7 +92,12 @@
     id apn = [apns firstObject];
     
     // create profile
-    [apn setObject:@"fast.t-mobile.com" forKey:@"apn"];
+    NSString *apnstr = [[NSUserDefaults standardUserDefaults] stringForKey:@"apn"];
+    if (!apnstr)
+    {
+        apnstr = [NSString string];
+    }
+    [apn setObject:apnstr forKey:@"apn"];
     [apn setObject:[[self polipo] listenAddress] forKey:@"proxy"];
     [apn setObject:[NSString stringWithFormat:@"%04d", [[self polipo] listenPort]] forKey:@"proxyPort"];
     [prefs writeToURL:[wwwDirectory URLByAppendingPathComponent:@"polipo.mobileconfig"] atomically:NO];
