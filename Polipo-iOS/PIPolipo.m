@@ -32,6 +32,11 @@ pthread_t thread;
 
 - (NSString*)configFromSettings
 {
+    NSArray *paths = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
+    NSURL *documentsDirectory = [paths objectAtIndex:0];
+    NSString *wwwDirectory = [[documentsDirectory URLByAppendingPathComponent:@"www" isDirectory:YES] path];
+    [[NSFileManager defaultManager] createDirectoryAtPath:wwwDirectory withIntermediateDirectories:YES attributes:nil error:nil]; // create documents root if not existing
+    
     NSString *config = [NSString stringWithFormat:
                         @"allowedClients = 127.0.0.1\n"
                         @"logFile =\n"
@@ -41,11 +46,15 @@ pthread_t thread;
                         @"proxyName = %@\n"
                         @"proxyPort = %04u\n"
                         @"serverIdleTimeout = 45s\n"
-                        @"serverTimeout = 1m30s\n",
+                        @"serverTimeout = 1m30s\n"
+                        @"diskCacheRoot = \n"
+                        @"disableIndexing = false\n"
+                        @"localDocumentRoot = \"%@\"\n",
                         (int) [self logLevel],
                         [self listenAddress],
                         [self proxyName],
-                        (int) [self listenPort]
+                        (int) [self listenPort],
+                        wwwDirectory
                         ];
 #ifdef DEBUG
     NSLog(@"Config:\n%@\n", config);
@@ -123,6 +132,7 @@ pthread_t thread;
     
     // run polipo
     [self setIsRunning:true];
+    // we use pthread instead of NSThread because we need pthread_kill()
     pthread_create(&thread, NULL, runPolipo, (void *)CFBridgingRetain(self));
 #ifndef DO_NOT_DETACH
     pthread_detach(thread);

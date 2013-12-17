@@ -49,7 +49,7 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQh-Tk-Wck">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQh-Tk-Wck">
                                 <rect key="frame" x="20" y="55" width="88" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Install Profile">
@@ -89,6 +89,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="activityIndicator" destination="OMD-Iz-Rwt" id="OZt-tu-Hu1"/>
+                        <outlet property="installProfileButton" destination="SQh-Tk-Wck" id="kev-ET-toa"/>
                         <outlet property="logTextView" destination="cSJ-wd-xiw" id="XPG-yN-8EY"/>
                         <outlet property="startProxySwitch" destination="lXG-0y-huM" id="5VK-3H-3MJ"/>
                         <outlet property="statusLabel" destination="ob6-UU-9mn" id="npD-x4-emq"/>

@@ -77,7 +77,28 @@
 
 - (IBAction)installProfile:(id)sender
 {
+    // prepare profile
+    NSArray *paths = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
+    NSURL *documentsDirectory = [paths objectAtIndex:0];
+    NSURL *wwwDirectory = [documentsDirectory URLByAppendingPathComponent:@"www" isDirectory:YES];
+    NSString *configfile = [[NSBundle mainBundle] pathForResource: @"polipo" ofType: @"mobileconfig"];
+    NSMutableDictionary* prefs = [[NSMutableDictionary alloc] initWithContentsOfFile:configfile];
+    id payloadContent = [prefs valueForKey:@"PayloadContent"];
+    id payload = [payloadContent firstObject];
+    payloadContent = [payload valueForKey:@"PayloadContent"];
+    payload = [payloadContent firstObject];
+    id defaults = [payload valueForKey:@"DefaultsData"];
+    id apns = [defaults valueForKey:@"apns"];
+    id apn = [apns firstObject];
     
+    // create profile
+    [apn setObject:@"fast.t-mobile.com" forKey:@"apn"];
+    [apn setObject:[[self polipo] listenAddress] forKey:@"proxy"];
+    [apn setObject:[NSString stringWithFormat:@"%04d", [[self polipo] listenPort]] forKey:@"proxyPort"];
+    [prefs writeToURL:[wwwDirectory URLByAppendingPathComponent:@"polipo.mobileconfig"] atomically:NO];
+    
+    // open link to profile
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@:%d/%@", [[self polipo] listenAddress], (int) [[self polipo] listenPort], @"polipo.mobileconfig"]]];
 }
 
 #pragma mark Polipo Delegate methods
@@ -98,6 +119,7 @@
 {
     [self setIsWorking:false];
     [[self startProxySwitch] setOn:[polipo isRunning]];
+    [[self installProfileButton] setEnabled:true];
     [[self statusLabel] setText:[NSString stringWithFormat:@"Listening on %@:%d", [[self polipo] listenAddress], (int)[[self polipo] listenPort]]];
 }
 
@@ -105,6 +127,7 @@
 {
     [self setIsWorking:false];
     [[self startProxySwitch] setOn:[polipo isRunning]];
+    [[self installProfileButton] setEnabled:false];
     [[self statusLabel] setText:@"Stopped"];
 }
 
@@ -112,6 +135,7 @@
 {
     [self setIsWorking:false];
     [[self startProxySwitch] setOn:[polipo isRunning]];
+    [[self installProfileButton] setEnabled:false];
     UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Error" message:error delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [message show];
     [[self statusLabel] setText:@"Error"];

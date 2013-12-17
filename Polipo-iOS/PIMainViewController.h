@@ -14,6 +14,7 @@
 @property (strong, nonatomic) IBOutlet UISwitch *startProxySwitch;
 @property (strong, nonatomic) IBOutlet UILabel *statusLabel;
 @property (strong, nonatomic) IBOutlet UITextView *logTextView;
+@property (strong, nonatomic) IBOutlet UIButton *installProfileButton;
 
 - (IBAction)toggleProxy:(id)sender;
 - (IBAction)installProfile:(id)sender;

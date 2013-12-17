@@ -10,6 +10,7 @@
 		CED61F15185E54250076BC46 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CED61F14185E54250076BC46 /* Settings.bundle */; };
 		CED61F18185F84AE0076BC46 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED61F17185F84AE0076BC46 /* AVFoundation.framework */; };
 		CED61F1A185F905D0076BC46 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CED61F19185F905D0076BC46 /* Images.xcassets */; };
+		CED61F1C185FC4030076BC46 /* polipo.mobileconfig in Resources */ = {isa = PBXBuildFile; fileRef = CED61F1B185FC4030076BC46 /* polipo.mobileconfig */; };
 		CEDF63BA17AF57BC000AE912 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDF63B917AF57BC000AE912 /* UIKit.framework */; };
 		CEDF63BC17AF57BC000AE912 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDF63BB17AF57BC000AE912 /* Foundation.framework */; };
 		CEDF63BE17AF57BC000AE912 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDF63BD17AF57BC000AE912 /* CoreGraphics.framework */; };
@@ -40,6 +41,7 @@
 		CED61F14185E54250076BC46 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		CED61F17185F84AE0076BC46 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		CED61F19185F905D0076BC46 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CED61F1B185FC4030076BC46 /* polipo.mobileconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = polipo.mobileconfig; sourceTree = "<group>"; };
 		CEDF63B617AF57BC000AE912 /* Polipo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Polipo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDF63B917AF57BC000AE912 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CEDF63BB17AF57BC000AE912 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -129,6 +131,7 @@
 		CEDF63C017AF57BC000AE912 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CED61F1B185FC4030076BC46 /* polipo.mobileconfig */,
 				CEDF63C117AF57BC000AE912 /* Polipo-iOS-Info.plist */,
 				CEDF63C217AF57BC000AE912 /* InfoPlist.strings */,
 				CEDF63C517AF57BC000AE912 /* main.m */,
@@ -218,6 +221,7 @@
 			files = (
 				CEDF63C417AF57BC000AE912 /* InfoPlist.strings in Resources */,
 				CEDF63CC17AF57BC000AE912 /* Default.png in Resources */,
+				CED61F1C185FC4030076BC46 /* polipo.mobileconfig in Resources */,
 				CED61F1A185F905D0076BC46 /* Images.xcassets in Resources */,
 				CEDF63CE17AF57BC000AE912 /* Default@2x.png in Resources */,
 				CEDF63D017AF57BC000AE912 /* Default-568h@2x.png in Resources */,
@@ -329,6 +333,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Polipo-iOS/Polipo-iOS-Prefix.pch";
 				INFOPLIST_FILE = "Polipo-iOS/Polipo-iOS-Info.plist";
+				OTHER_CFLAGS = "";
 				OTHER_CODE_SIGN_FLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
