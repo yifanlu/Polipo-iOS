@@ -31,7 +31,7 @@
     NSLog(@"applicationDidEnterBackground\n");
     NSTimeInterval expireTime = [[UIApplication sharedApplication] backgroundTimeRemaining]-10;
     NSLog(@"Background expires in %f seconds.", expireTime);
-#ifdef BACKGROUND_END_ALERT
+#ifdef NO_AUDIO_BACKGROUNDING
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"suspendAlert"])
     {
         if (expireTime > 10)
@@ -50,7 +50,7 @@
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     NSLog(@"applicationWillEnterForeground\n");
-#ifdef BACKGROUND_END_ALERT
+#ifdef NO_AUDIO_BACKGROUNDING
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
 #endif
 }

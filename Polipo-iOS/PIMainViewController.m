@@ -14,15 +14,23 @@
 
 @property (nonatomic) bool isWorking;
 @property (nonatomic, strong) PIPolipo *polipo;
+#ifdef NO_AUDIO_BACKGROUNDING
 @property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;
+#else
 @property (nonatomic, strong) AVPlayer *bgPlayer;
+#endif
 
 @end
 
 @implementation PIMainViewController
 
 @synthesize activityIndicator, startProxySwitch, statusLabel, logTextView;
-@synthesize isWorking = _isWorking, polipo = _polipo, backgroundTask;
+@synthesize isWorking = _isWorking, polipo = _polipo;
+#ifdef NO_AUDIO_BACKGROUNDING
+@synthesize backgroundTask;
+#else
+@synthesize bgPlayer;
+#endif
 
 #pragma mark View Delegate methods
 
@@ -31,6 +39,7 @@
     [super viewDidLoad];
     [self setPolipo:[[PIPolipo alloc] initWithDelegate:self]];
     
+#ifndef NO_AUDIO_BACKGROUNDING
     // Set AVAudioSession
     NSError *sessionError = nil;
     [[AVAudioSession sharedInstance] setDelegate:self];
@@ -40,6 +49,7 @@
     
     [self setBgPlayer:[[AVPlayer alloc] initWithPlayerItem:item]];
     [[self bgPlayer] setActionAtItemEnd:AVPlayerActionAtItemEndNone];
+#endif
 }
 
 - (void)didReceiveMemoryWarning
@@ -140,12 +150,15 @@
     [[self statusLabel] setText:[NSString stringWithFormat:@"Listening on %@:%d", [[self polipo] listenAddress], (int)[[self polipo] listenPort]]];
     
     // start backgrounding
+#ifndef NO_AUDIO_BACKGROUNDING
     [[self bgPlayer] play];
+#else
     [self setBackgroundTask:[[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
         NSLog(@"Background handler about to expire.");
         [[UIApplication sharedApplication] endBackgroundTask:[self backgroundTask]];
         [self setBackgroundTask:UIBackgroundTaskInvalid];
     }]];
+#endif
 }
 
 - (void)polipoDidStop:(PIPolipo *)polipo
@@ -154,11 +167,13 @@
     [[self startProxySwitch] setOn:[polipo isRunning]];
     [[self installProfileButton] setEnabled:false];
     [[self statusLabel] setText:@"Stopped"];
+#ifdef NO_AUDIO_BACKGROUNDING
     if ([self backgroundTask] != UIBackgroundTaskInvalid)
     {
         [[UIApplication sharedApplication] endBackgroundTask:[self backgroundTask]];
         [self setBackgroundTask:UIBackgroundTaskInvalid];
     }
+#endif
 }
 
 - (void)polipoDidFailWithError:(NSString *)error polipo:(PIPolipo *)polipo
@@ -169,11 +184,13 @@
     UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Error" message:error delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [message show];
     [[self statusLabel] setText:@"Error"];
+#ifdef NO_AUDIO_BACKGROUNDING
     if ([self backgroundTask] != UIBackgroundTaskInvalid)
     {
         [[UIApplication sharedApplication] endBackgroundTask:[self backgroundTask]];
         [self setBackgroundTask:UIBackgroundTaskInvalid];
     }
+#endif
 }
 
 - (void)polipoLogMessage:(NSString *)message
