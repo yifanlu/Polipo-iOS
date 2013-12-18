@@ -337,7 +337,6 @@
 				GCC_PREFIX_HEADER = "Polipo-iOS/Polipo-iOS-Prefix.pch";
 				INFOPLIST_FILE = "Polipo-iOS/Polipo-iOS-Info.plist";
 				OTHER_CFLAGS = "";
-				OTHER_CODE_SIGN_FLAGS = "-gta";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -351,7 +350,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Polipo-iOS/Polipo-iOS-Prefix.pch";
 				INFOPLIST_FILE = "Polipo-iOS/Polipo-iOS-Info.plist";
-				OTHER_CODE_SIGN_FLAGS = "-gta";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

@@ -123,6 +123,7 @@
     [apn setObject:[[self polipo] listenAddress] forKey:@"proxy"];
     [apn setObject:[NSString stringWithFormat:@"%04d", [[self polipo] listenPort]] forKey:@"proxyPort"];
     [prefs writeToURL:[wwwDirectory URLByAppendingPathComponent:@"polipo.mobileconfig"] atomically:NO];
+    // TODO: Sign profile
     
     // open link to profile
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@:%d/%@", [[self polipo] listenAddress], (int) [[self polipo] listenPort], @"polipo.mobileconfig"]]];
