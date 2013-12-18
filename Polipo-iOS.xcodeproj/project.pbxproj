@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE9E2D331861730700913FD3 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9E2D321861730700913FD3 /* CoreMedia.framework */; };
 		CED61F15185E54250076BC46 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CED61F14185E54250076BC46 /* Settings.bundle */; };
 		CED61F18185F84AE0076BC46 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED61F17185F84AE0076BC46 /* AVFoundation.framework */; };
 		CED61F1A185F905D0076BC46 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CED61F19185F905D0076BC46 /* Images.xcassets */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE9E2D321861730700913FD3 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		CED61F14185E54250076BC46 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		CED61F17185F84AE0076BC46 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		CED61F19185F905D0076BC46 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			files = (
 				CED61F18185F84AE0076BC46 /* AVFoundation.framework in Frameworks */,
 				CEF0EA6C17AF7B1100DB4111 /* CFNetwork.framework in Frameworks */,
+				CE9E2D331861730700913FD3 /* CoreMedia.framework in Frameworks */,
 				CEDF63BE17AF57BC000AE912 /* CoreGraphics.framework in Frameworks */,
 				CEDF63BC17AF57BC000AE912 /* Foundation.framework in Frameworks */,
 				CEDF63BA17AF57BC000AE912 /* UIKit.framework in Frameworks */,
@@ -104,6 +107,7 @@
 		CEDF63B817AF57BC000AE912 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE9E2D321861730700913FD3 /* CoreMedia.framework */,
 				CED61F17185F84AE0076BC46 /* AVFoundation.framework */,
 				CEF0EA6B17AF7B1000DB4111 /* CFNetwork.framework */,
 				CEDF63BD17AF57BC000AE912 /* CoreGraphics.framework */,

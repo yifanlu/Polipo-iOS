@@ -7,6 +7,7 @@
 //
 
 #import <AVFoundation/AVFoundation.h>
+#import <CoreMedia/CoreMedia.h>
 #import "PIMainViewController.h"
 #import "PIPolipo.h"
 
@@ -152,6 +153,7 @@
     
     // start backgrounding
 #ifndef NO_AUDIO_BACKGROUNDING
+    [[self bgPlayer] seekToTime:kCMTimeZero];
     [[self bgPlayer] play];
 #else
     [self setBackgroundTask:[[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
@@ -168,7 +170,9 @@
     [[self startProxySwitch] setOn:[polipo isRunning]];
     [[self installProfileButton] setEnabled:false];
     [[self statusLabel] setText:@"Stopped"];
-#ifdef NO_AUDIO_BACKGROUNDING
+#ifndef NO_AUDIO_BACKGROUNDING
+    [[self bgPlayer] pause];
+#else
     if ([self backgroundTask] != UIBackgroundTaskInvalid)
     {
         [[UIApplication sharedApplication] endBackgroundTask:[self backgroundTask]];
@@ -185,7 +189,10 @@
     UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Error" message:error delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [message show];
     [[self statusLabel] setText:@"Error"];
-#ifdef NO_AUDIO_BACKGROUNDING
+    [[self bgPlayer] pause];
+#ifndef NO_AUDIO_BACKGROUNDING
+    [[self bgPlayer] pause];
+#else
     if ([self backgroundTask] != UIBackgroundTaskInvalid)
     {
         [[UIApplication sharedApplication] endBackgroundTask:[self backgroundTask]];
