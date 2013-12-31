@@ -21,6 +21,11 @@
 @property (nonatomic, strong) AVPlayer *bgPlayer;
 #endif
 
+- (void)createProfile;
+- (void)createSignedProfile;
+- (void)enableBackground;
+- (void)disableBackground;
+
 @end
 
 @implementation PIMainViewController
@@ -39,8 +44,20 @@
 {
     [super viewDidLoad];
     [self setPolipo:[[PIPolipo alloc] initWithDelegate:self]];
-    
-#ifndef NO_AUDIO_BACKGROUNDING
+}
+
+- (void)enableBackground
+{
+#ifdef DEBUG
+    NSLog(@"Enable backgrounding");
+#endif
+#ifdef NO_AUDIO_BACKGROUNDING
+    [self setBackgroundTask:[[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        NSLog(@"Background handler about to expire.");
+        [[UIApplication sharedApplication] endBackgroundTask:[self backgroundTask]];
+        [self setBackgroundTask:UIBackgroundTaskInvalid];
+    }]];
+#else
     // Set AVAudioSession
     NSError *sessionError = nil;
     [[AVAudioSession sharedInstance] setDelegate:self];
@@ -50,6 +67,23 @@
     
     [self setBgPlayer:[[AVPlayer alloc] initWithPlayerItem:item]];
     [[self bgPlayer] setActionAtItemEnd:AVPlayerActionAtItemEndNone];
+    [[self bgPlayer] play];
+#endif
+}
+
+- (void)disableBackground
+{
+#ifdef DEBUG
+    NSLog(@"Disable backgrounding");
+#endif
+#ifdef NO_AUDIO_BACKGROUNDING
+    if ([self backgroundTask] != UIBackgroundTaskInvalid)
+    {
+        [[UIApplication sharedApplication] endBackgroundTask:[self backgroundTask]];
+        [self setBackgroundTask:UIBackgroundTaskInvalid];
+    }
+#else
+    [self setBgPlayer:nil];
 #endif
 }
 
@@ -98,7 +132,7 @@
     });
 }
 
-- (IBAction)installProfile:(id)sender
+- (void)createProfile
 {
     // prepare profile
     NSArray *paths = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
@@ -122,10 +156,24 @@
     }
     [apn setObject:apnstr forKey:@"apn"];
     [apn setObject:[[self polipo] listenAddress] forKey:@"proxy"];
-    [apn setObject:[NSString stringWithFormat:@"%04d", [[self polipo] listenPort]] forKey:@"proxyPort"];
+    [apn setObject:[NSString stringWithFormat:@"%04d", (int)[[self polipo] listenPort]] forKey:@"proxyPort"];
     [prefs writeToURL:[wwwDirectory URLByAppendingPathComponent:@"polipo.mobileconfig"] atomically:NO];
-    // TODO: Sign profile
+}
+
+- (void)createSignedProfile
+{
+    NSArray *paths = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
+    NSURL *documentsDirectory = [paths objectAtIndex:0];
+    NSURL *wwwDirectory = [documentsDirectory URLByAppendingPathComponent:@"www" isDirectory:YES];
+    NSURL *configfile = [[NSBundle mainBundle] URLForResource: @"polipo-signed" withExtension: @"mobileconfig"];
+    NSURL *webpath = [wwwDirectory URLByAppendingPathComponent:@"polipo.mobileconfig"];
     
+    [[NSFileManager defaultManager] removeItemAtURL:webpath error:nil];
+    [[NSFileManager defaultManager] copyItemAtURL:configfile toURL:webpath error:nil];
+}
+
+- (IBAction)installProfile:(id)sender
+{
     // open link to profile
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@:%d/%@", [[self polipo] listenAddress], (int) [[self polipo] listenPort], @"polipo.mobileconfig"]]];
 }
@@ -136,12 +184,21 @@
 {
     [self setIsWorking:true];
     [[self statusLabel] setText:@"Starting..."];
+    if ([[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] == NSOrderedAscending)
+    {
+        [self createProfile];
+    }
+    else
+    {
+        [self createSignedProfile];
+    }
 }
 
 - (void)polipoWillStop:(PIPolipo *)polipo
 {
     [self setIsWorking:true];
     [[self statusLabel] setText:@"Stopping..."];
+    [self disableBackground];
 }
 
 - (void)polipoDidStart:(PIPolipo *)polipo
@@ -151,17 +208,7 @@
     [[self installProfileButton] setEnabled:true];
     [[self statusLabel] setText:[NSString stringWithFormat:@"Listening on %@:%d", [[self polipo] listenAddress], (int)[[self polipo] listenPort]]];
     
-    // start backgrounding
-#ifndef NO_AUDIO_BACKGROUNDING
-    [[self bgPlayer] seekToTime:kCMTimeZero];
-    [[self bgPlayer] play];
-#else
-    [self setBackgroundTask:[[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-        NSLog(@"Background handler about to expire.");
-        [[UIApplication sharedApplication] endBackgroundTask:[self backgroundTask]];
-        [self setBackgroundTask:UIBackgroundTaskInvalid];
-    }]];
-#endif
+    [self enableBackground];
 }
 
 - (void)polipoDidStop:(PIPolipo *)polipo
@@ -170,15 +217,6 @@
     [[self startProxySwitch] setOn:[polipo isRunning]];
     [[self installProfileButton] setEnabled:false];
     [[self statusLabel] setText:@"Stopped"];
-#ifndef NO_AUDIO_BACKGROUNDING
-    [[self bgPlayer] pause];
-#else
-    if ([self backgroundTask] != UIBackgroundTaskInvalid)
-    {
-        [[UIApplication sharedApplication] endBackgroundTask:[self backgroundTask]];
-        [self setBackgroundTask:UIBackgroundTaskInvalid];
-    }
-#endif
 }
 
 - (void)polipoDidFailWithError:(NSString *)error polipo:(PIPolipo *)polipo
@@ -189,16 +227,7 @@
     UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Error" message:error delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [message show];
     [[self statusLabel] setText:@"Error"];
-    [[self bgPlayer] pause];
-#ifndef NO_AUDIO_BACKGROUNDING
-    [[self bgPlayer] pause];
-#else
-    if ([self backgroundTask] != UIBackgroundTaskInvalid)
-    {
-        [[UIApplication sharedApplication] endBackgroundTask:[self backgroundTask]];
-        [self setBackgroundTask:UIBackgroundTaskInvalid];
-    }
-#endif
+    [self disableBackground];
 }
 
 - (void)polipoLogMessage:(NSString *)message
