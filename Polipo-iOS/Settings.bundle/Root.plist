@@ -6,6 +6,12 @@
 	<array>
 		<dict>
 			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Proxy</string>
+		</dict>
+		<dict>
+			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 			<key>Title</key>
 			<string>Port</string>
@@ -13,6 +19,8 @@
 			<string>proxyPort</string>
 			<key>DefaultValue</key>
 			<string>8008</string>
+			<key>KeyboardType</key>
+			<string>NumberPad</string>
 		</dict>
 		<dict>
 			<key>Type</key>
@@ -34,21 +42,61 @@
 		</dict>
 		<dict>
 			<key>Type</key>
-			<string>PSGroupSpecifier</string>
+			<string>PSTextFieldSpecifier</string>
 			<key>Title</key>
 			<string>Log Level</string>
+			<key>Key</key>
+			<string>proxyLogLevel</string>
+			<key>KeyboardType</key>
+			<string>NumberPad</string>
+			<key>DefaultValue</key>
+			<string>1</string>
 		</dict>
 		<dict>
 			<key>Type</key>
-			<string>PSSliderSpecifier</string>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Tunneling</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Tunnel Address</string>
 			<key>Key</key>
-			<string>logLevel</string>
+			<string>tunnelAddress</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Tunnel Port</string>
+			<key>Key</key>
+			<string>tunnelPort</string>
+			<key>KeyboardType</key>
+			<string>NumberPad</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Log Level</string>
+			<key>Key</key>
+			<string>tunnelLogLevel</string>
+			<key>KeyboardType</key>
+			<string>NumberPad</string>
 			<key>DefaultValue</key>
-			<integer>7</integer>
-			<key>MinimumValue</key>
-			<integer>0</integer>
-			<key>MaximumValue</key>
-			<integer>255</integer>
+			<string>1</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Tunnel Always</string>
+			<key>Key</key>
+			<string>tunnelAlways</string>
+			<key>DefaultValue</key>
+			<false/>
 		</dict>
 	</array>
 	<key>StringsTable</key>

@@ -17,6 +17,8 @@ extern int polipoGetListenerSocket();
 extern int polipoDoEvents();
 extern int polipoClearCache();
 extern void polipoRelease();
+extern int httptunnel_client (int port, const char *hostname, int host_port);
+extern int httptunnel_setdebug (int loglevel, FILE *logfile);
 
 @class PIPolipo;
 
@@ -28,6 +30,7 @@ extern void polipoRelease();
 - (void)polipoWillStop:(PIPolipo *)polipo;
 - (void)polipoDidStart:(PIPolipo *)polipo;
 - (void)polipoDidStop:(PIPolipo *)polipo;
+- (void)polipoDidTunnelStop:(PIPolipo *)polipo;
 - (void)polipoDidFailWithError:(NSString *)error polipo:(PIPolipo *)polipo;
 - (void)polipoLogMessage:(NSString *)message;
 
@@ -41,6 +44,8 @@ extern void polipoRelease();
 @property (readonly) NSString *proxyName;
 @property (readonly) NSString *listenAddress;
 @property (readonly) NSInteger listenPort;
+@property (readonly) NSString *tunnelAddress;
+@property (readonly) bool tunnelAlways;
 
 - (id)initWithDelegate:(id)delegate;
 - (void)start;

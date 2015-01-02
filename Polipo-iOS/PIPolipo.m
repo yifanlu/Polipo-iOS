@@ -17,16 +17,19 @@ void *runPolipo(void *args);
 
 @property (nonatomic, strong) NSPipe *logPipe;
 @property (nonatomic, strong) NSThread *proxyThread;
+@property (nonatomic, strong) NSThread *tunnelThread;
 @property bool polipoInitialized;
+@property int tunnelClientPort;
 
 @end
 
 @implementation PIPolipo
 
-@synthesize delegate = _delegate, isRunning = _isRunning, logPipe = _logPipe, proxyThread = _proxyThread, polipoInitialized;
+@synthesize delegate = _delegate, isRunning = _isRunning, logPipe = _logPipe, proxyThread = _proxyThread, tunnelThread = _tunnelThread, polipoInitialized, tunnelClientPort;
 @synthesize logLevel, proxyName, listenAddress, listenPort;
 
-pthread_t thread;
+pthread_t proxyPthread;
+pthread_t tunnelPthread;
 
 #pragma mark Setup polipo
 
@@ -49,12 +52,16 @@ pthread_t thread;
                         @"serverTimeout = 1m30s\n"
                         @"diskCacheRoot = \n"
                         @"disableIndexing = false\n"
-                        @"localDocumentRoot = \"%@\"\n",
-                        (int) [self logLevel],
+                        @"localDocumentRoot = \"%@\"\n"
+                        @"parentProxy = localhost:%04u\n"
+                        @"onlyForwardHttps = %s\n",
+                        (int) [self proxyLogLevel],
                         [self listenAddress],
                         [self proxyName],
                         (int) [self listenPort],
-                        wwwDirectory
+                        wwwDirectory,
+                        [self tunnelClientPort],
+                        [self tunnelAlways] ? "false" : "true"
                         ];
 #ifdef DEBUG
     NSLog(@"Config:\n%@\n", config);
@@ -92,6 +99,10 @@ pthread_t thread;
                        [[self delegate] polipoWillStart:self];
                    });
     
+    // assign tunnel port
+    // TODO: better way of assigning
+    tunnelClientPort = 4444;
+    
     // get config
     NSString *tmpPath = NSTemporaryDirectory();
     NSString *path = [tmpPath stringByAppendingPathComponent:@"polipo.config"];
@@ -99,7 +110,9 @@ pthread_t thread;
     [conf writeToFile:path atomically:YES encoding:NSASCIIStringEncoding error:NULL];
     
     // set up logging
-    polipoSetLog(fdopen([[[self logPipe] fileHandleForWriting] fileDescriptor], "w"));
+    FILE *log_file = fdopen([[[self logPipe] fileHandleForWriting] fileDescriptor], "w");
+    polipoSetLog(log_file);
+    httptunnel_setdebug((int)[self tunnelLogLevel], log_file);
     NSFileHandle *handle = [[self logPipe] fileHandleForReading];
     [handle setReadabilityHandler:^(NSFileHandle *handle) {
         NSString *log = [[NSString alloc] initWithData:[handle availableData] encoding:NSASCIIStringEncoding];
@@ -133,9 +146,11 @@ pthread_t thread;
     // run polipo
     [self setIsRunning:true];
     // we use pthread instead of NSThread because we need pthread_kill()
-    pthread_create(&thread, NULL, runPolipo, (void *)CFBridgingRetain(self));
+    pthread_create(&proxyPthread, NULL, runPolipo, (void *)CFBridgingRetain(self));
+    pthread_create(&tunnelPthread, NULL, runTunnel, (void *)CFBridgingRetain(self));
 #ifndef DO_NOT_DETACH
-    pthread_detach(thread);
+    pthread_detach(proxyPthread);
+    pthread_detach(tunnelPthread);
 #endif
     
     dispatch_async(dispatch_get_main_queue(),
@@ -160,24 +175,39 @@ pthread_t thread;
         return;
     }
     polipoExit();
-    pthread_kill(thread, SIGINT);
+    pthread_kill(proxyPthread, SIGINT);
+    pthread_kill(tunnelPthread, SIGINT);
 #ifdef DO_NOT_DETACH
-    pthread_join(thread, NULL);
+    pthread_join(proxyPthread, NULL);
+    pthread_join(tunnelPthread, NULL);
 #endif
 }
 
 #pragma mark Properties
 
-- (NSInteger)logLevel
+- (NSInteger)proxyLogLevel
 {
-    NSInteger val = [[NSUserDefaults standardUserDefaults] integerForKey:@"logLevel"];
+    NSInteger val = [[NSUserDefaults standardUserDefaults] integerForKey:@"proxyLogLevel"];
     if (val)
     {
         return val;
     }
     else
     {
-        return 0x07;
+        return 1;
+    }
+}
+
+- (NSInteger)tunnelLogLevel
+{
+    NSInteger val = [[NSUserDefaults standardUserDefaults] integerForKey:@"tunnelLogLevel"];
+    if (val)
+    {
+        return val;
+    }
+    else
+    {
+        return 1;
     }
 }
 
@@ -212,11 +242,50 @@ pthread_t thread;
     }
 }
 
+- (NSString *)tunnelAddress
+{
+    NSString *val = [[NSUserDefaults standardUserDefaults] stringForKey:@"tunnelAddress"];
+    if (val)
+    {
+        return val;
+    }
+    else
+    {
+        return @"0.0.0.0";
+    }
+}
+
+- (NSInteger)tunnelPort
+{
+    NSInteger val = [[NSUserDefaults standardUserDefaults] integerForKey:@"tunnelPort"];
+    if (val)
+    {
+        return val;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+- (bool)tunnelAlways
+{
+    bool val = [[NSUserDefaults standardUserDefaults] boolForKey:@"tunnelAlways"];
+    if (val)
+    {
+        return val;
+    }
+    else
+    {
+        return NO;
+    }
+}
+
 #pragma mark Polipo run thread
 
 void *runPolipo(void *args)
 {
-    id self = CFBridgingRelease(args);
+    PIPolipo *self = (PIPolipo *)CFBridgingRelease(args);
     polipoDoEvents();
     close(polipoGetListenerSocket());
     [self setIsRunning:false];
@@ -225,6 +294,18 @@ void *runPolipo(void *args)
                        [[self delegate] polipoDidStop:self];
                    });
     [self setProxyThread:nil];
+    return NULL;
+}
+
+void *runTunnel(void *args)
+{
+    PIPolipo *self = (PIPolipo *)CFBridgingRelease(args);
+    httptunnel_client([self tunnelClientPort], [[self tunnelAddress] UTF8String], (int)[self tunnelPort]);
+    dispatch_async(dispatch_get_main_queue(),
+                   ^ {
+                       [[self delegate] polipoDidTunnelStop:self];
+                   });
+    [self setTunnelThread:nil];
     return NULL;
 }
 
