@@ -61,7 +61,12 @@
     // Set AVAudioSession
     NSError *sessionError = nil;
     [[AVAudioSession sharedInstance] setDelegate:self];
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 60000
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback withOptions:AVAudioSessionCategoryOptionMixWithOthers error:&sessionError];
+#else
+    NSLog(@"Warning: iOS 6 is required for background audio hiding.");
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&sessionError];
+#endif
     
     AVPlayerItem *item = [AVPlayerItem playerItemWithURL:[[NSBundle mainBundle] URLForResource:@"silence" withExtension:@"mp3"]];
     
@@ -217,6 +222,10 @@
     [[self startProxySwitch] setOn:[polipo isRunning]];
     [[self installProfileButton] setEnabled:false];
     [[self statusLabel] setText:@"Stopped"];
+}
+
+- (void)polipoDidTunnelStop:(PIPolipo *)polipo
+{
 }
 
 - (void)polipoDidFailWithError:(NSString *)error polipo:(PIPolipo *)polipo

@@ -231,7 +231,7 @@
 		CEDF633917AF2E07000AE912 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Yifan Lu";
 			};
 			buildConfigurationList = CEDF633C17AF2E07000AE912 /* Build configuration list for PBXProject "libpolipo" */;
@@ -342,7 +342,6 @@
 		CEDF635017AF2E07000AE912 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				DSTROOT = /tmp/libpolipo.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				OTHER_CFLAGS = "-DNO_FANCY_RESOLVER";
@@ -355,7 +354,6 @@
 		CEDF635117AF2E07000AE912 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				DSTROOT = /tmp/libpolipo.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				OTHER_CFLAGS = "-DNO_FANCY_RESOLVER";
