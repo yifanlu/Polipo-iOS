@@ -40,6 +40,7 @@ int maxSideBuffering = 1500;
 int maxConnectionAge = 1260;
 int maxConnectionRequests = 400;
 int alwaysAddNoTransform = 0;
+int onlyForwardHttps = 0;
 
 static HTTPServerPtr servers = 0;
 
@@ -95,6 +96,9 @@ preinitServer(void)
                              "Maximum number of requests on a server-side connection.");
     CONFIG_VARIABLE(alwaysAddNoTransform, CONFIG_BOOLEAN,
                     "If true, add a no-transform directive to all requests.");
+    CONFIG_VARIABLE_SETTABLE(onlyForwardHttps,
+                             CONFIG_BOOLEAN, configIntSetter,
+                             "If true and parent proxy/host is configured, only use it for HTTPS.");
 }
 
 static int
@@ -404,7 +408,7 @@ httpMakeServerRequest(char *name, int port, ObjectPtr object,
 
     assert(!(object->flags & OBJECT_INPROGRESS));
 
-    if(parentHost) {
+    if(parentHost && !onlyForwardHttps) {
         server = getServer(parentHost->string, parentPort, 1);
     } else {
         server = getServer(name, port, 0);
